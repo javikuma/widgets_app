@@ -28,9 +28,8 @@ class AppTheme {
 
   AppTheme({
     this.selectedColor = 0,
-    this.isDarkmode = false,  
-  })
-      : assert(selectedColor >= 0, 'SelectedColor must be greater than 0'),
+    this.isDarkmode = false,
+  })  : assert(selectedColor >= 0, 'SelectedColor must be greater than 0'),
         assert(selectedColor < colorList.length,
             'SelectedColor must be less than ${colorList.length - 1}');
 
@@ -42,4 +41,14 @@ class AppTheme {
           centerTitle: false,
         ),
       );
+
+  // copyWith es un método de Flutter que permite clonar un objeto y modificar sus propiedades.
+  // 👇 Devuelve una nueva instancia de AppTheme
+  AppTheme copyWith({
+    int? selectedColor,
+    bool? isDarkmode,
+  }) => AppTheme(
+    selectedColor: selectedColor ?? this.selectedColor,
+    isDarkmode: isDarkmode ?? this.isDarkmode,
+  );
 }
